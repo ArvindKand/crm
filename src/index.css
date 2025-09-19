@@ -20,3 +20,8 @@ body {
   background-color: #f8f9fa;
   color: #16181b;
 }
+
+body.dark {
+  background-color: #111827;
+  color: #f3f4f6;
+}

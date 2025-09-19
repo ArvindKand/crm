@@ -16,7 +16,7 @@ const EinsteinEngagementScoring = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900 p-6 mb-6 transition-colors">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -25,13 +25,13 @@ const EinsteinEngagementScoring = () => {
             </svg>
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">Einstein Engagement Scoring</h2>
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Einstein Engagement Scoring</h2>
+            <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
               <span>1,875,155 Engaged Audience</span>
               <span>•</span>
               <span>Last updated on 9/29/2017</span>
               <span>•</span>
-              <a href="#" className="text-blue-600 hover:underline">What is model confidence?</a>
+              <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">What is model confidence?</a>
             </div>
           </div>
         </div>
@@ -44,51 +44,51 @@ const EinsteinEngagementScoring = () => {
             <div className="w-6 h-6 bg-purple-100 rounded flex items-center justify-center">
               <span className="text-purple-600 text-xs">@</span>
             </div>
-            <h3 className="font-medium text-gray-900">Email Engagement Prediction</h3>
+            <h3 className="font-medium text-gray-900 dark:text-white">Email Engagement Prediction</h3>
             <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
             </svg>
           </div>
           <div className="flex space-x-4">
             <button className="px-4 py-1 bg-blue-600 text-white text-sm rounded">Actual</button>
-            <button className="px-4 py-1 text-blue-600 text-sm border border-blue-600 rounded">Percentage</button>
+            <button className="px-4 py-1 text-blue-600 dark:text-blue-400 text-sm border border-blue-600 dark:border-blue-400 rounded">Percentage</button>
           </div>
         </div>
 
-        <div className="text-sm text-gray-600 mb-4">Likelihood to open email</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">Likelihood to open email</div>
 
         {/* Data Table */}
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600 w-48"></th>
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-600 dark:text-gray-400 w-48"></th>
                 {columns.map((col, idx) => (
-                  <th key={idx} className="text-center py-3 px-4 border-l border-gray-200">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">{col.title}</div>
-                    <div className="text-sm font-medium text-gray-800 mb-1">{col.subtitle}</div>
-                    <div className="text-xs text-gray-500">{col.description}</div>
+                  <th key={idx} className="text-center py-3 px-4 border-l border-gray-200 dark:border-gray-600">
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{col.title}</div>
+                    <div className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">{col.subtitle}</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">{col.description}</div>
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-gray-200">
-                <td className="py-2 px-2 text-sm text-gray-600 font-medium">Likelihood to open email</td>
+              <tr className="border-t border-gray-200 dark:border-gray-600">
+                <td className="py-2 px-2 text-sm text-gray-600 dark:text-gray-400 font-medium">Likelihood to open email</td>
                 <td colSpan={4} className="text-center py-1"></td>
               </tr>
               {engagementData.map((row, idx) => (
-                <tr key={idx} className="border-t border-gray-100">
-                  <td className="py-2 px-2 text-sm font-medium text-gray-700">{row.likelihood}</td>
+                <tr key={idx} className="border-t border-gray-100 dark:border-gray-700">
+                  <td className="py-2 px-2 text-sm font-medium text-gray-700 dark:text-gray-300">{row.likelihood}</td>
                   {row.counts.map((count, countIdx) => (
-                    <td key={countIdx} className="text-center py-2 px-4 border-l border-gray-100">
+                    <td key={countIdx} className="text-center py-2 px-4 border-l border-gray-100 dark:border-gray-700">
                       <div className={`inline-block px-3 py-1 rounded text-sm font-medium ${
                         idx === 0 && countIdx === 0 ? 'bg-blue-100 text-blue-800' :
                         idx === 1 && countIdx === 0 ? 'bg-blue-100 text-blue-800' :
                         idx === 2 && countIdx === 0 ? 'bg-blue-100 text-blue-800' :
                         idx === 3 && countIdx === 0 ? 'bg-blue-100 text-blue-800' :
                         idx === 3 && countIdx === 3 ? 'bg-blue-600 text-white' :
-                        'bg-gray-50 text-gray-700'
+                        'bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
                       }`}>
                         {count.toLocaleString()}
                       </div>
@@ -101,32 +101,32 @@ const EinsteinEngagementScoring = () => {
         </div>
 
         <div className="flex items-center justify-between mt-4 text-sm">
-          <span className="text-gray-600">Size of Population</span>
+          <span className="text-gray-600 dark:text-gray-400">Size of Population</span>
           <div className="flex items-center space-x-4">
-            <span className="text-gray-600">50</span>
+            <span className="text-gray-600 dark:text-gray-400">50</span>
             <div className="w-48 h-2 bg-blue-200 rounded-full">
               <div className="w-full h-full bg-blue-600 rounded-full"></div>
             </div>
-            <span className="text-gray-600">622K</span>
+            <span className="text-gray-600 dark:text-gray-400">622K</span>
           </div>
         </div>
       </div>
 
       {/* Subscriber Retention Prediction */}
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-gray-50 p-4 rounded-lg">
+        <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg transition-colors">
           <div className="flex items-center space-x-2 mb-2">
             <div className="w-6 h-6 bg-purple-100 rounded flex items-center justify-center">
               <span className="text-purple-600 text-xs">@</span>
             </div>
-            <h4 className="font-medium text-gray-900">Subscriber Retention Prediction</h4>
+            <h4 className="font-medium text-gray-900 dark:text-white">Subscriber Retention Prediction</h4>
             <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
             </svg>
           </div>
-          <div className="text-sm text-gray-600 mb-3">Avg. Likelihood to Stay Subscribed</div>
-          <div className="text-3xl font-bold text-gray-900 mb-2">99.96%</div>
-          <div className="flex items-center text-sm text-gray-600 mb-4">
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-3">Avg. Likelihood to Stay Subscribed</div>
+          <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">99.96%</div>
+          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
             <span>NEXT 14 DAYS</span>
             <div className="ml-auto flex items-center">
               <span className="text-gray-400">0.0%</span>
@@ -135,14 +135,14 @@ const EinsteinEngagementScoring = () => {
           </div>
 
           <div className="mb-4">
-            <h5 className="text-sm font-medium text-gray-700 mb-2">Audience Health</h5>
+            <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Audience Health</h5>
             <div className="flex space-x-1 mb-2">
               <div className="flex-1 bg-red-200 h-2 rounded-l"></div>
               <div className="flex-1 bg-yellow-200 h-2"></div>
               <div className="flex-1 bg-blue-200 h-2"></div>
               <div className="flex-1 bg-green-500 h-2 rounded-r"></div>
             </div>
-            <div className="flex justify-between text-xs text-gray-600">
+            <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400">
               <span>POOR</span>
               <span>FAIR</span>
               <span>GOOD</span>
@@ -150,20 +150,20 @@ const EinsteinEngagementScoring = () => {
             </div>
           </div>
 
-          <p className="text-sm text-gray-600 mb-2">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             During the next 14 days, your audience is much more likely than average to stay subscribed.
-            <a href="#" className="text-blue-600 hover:underline ml-1">Learn More</a>
+            <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline ml-1">Learn More</a>
           </p>
 
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">Model Confidence:</span>
+            <span className="text-gray-600 dark:text-gray-400">Model Confidence:</span>
             <div className="flex items-center space-x-2">
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                 <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
               </div>
-              <a href="#" className="text-blue-600 hover:underline">View Details</a>
+              <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">View Details</a>
             </div>
           </div>
         </div>
